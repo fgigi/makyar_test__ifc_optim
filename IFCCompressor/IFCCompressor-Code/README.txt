@@ -1,0 +1,1 @@
+Usage: Enter IFCCompressor folder, and open IFCCompressor.vcxproj with VS, build and run the project.
