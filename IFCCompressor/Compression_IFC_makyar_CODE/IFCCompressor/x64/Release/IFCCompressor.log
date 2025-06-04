@@ -1,0 +1,11 @@
+﻿  IFCCompressor.cpp
+D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_3\IFCCompressor.cpp(28,11): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_3\IFCCompressor.cpp(33,30): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_3\IFCCompressor.cpp(293,43): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+  main.cpp
+D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_3\main.cpp(62,39): warning C4101: 'e' : variable locale non référencée
+  Génération de code en cours
+  Previous IPDB not found, fall back to full compilation.
+  All 874 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Fin de la génération du code
+  IFCCompressor.vcxproj -> D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_3\x64\Release\IFCCompressor.exe
