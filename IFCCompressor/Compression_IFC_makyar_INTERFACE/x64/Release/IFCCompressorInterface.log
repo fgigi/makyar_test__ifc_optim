@@ -1,0 +1,7 @@
+﻿  IFCCompressorGUI.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+  main.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Génération de code en cours...
+  IFCCompressorInterface.vcxproj -> D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_INTERFACE\x64\Release\IFCCompressorInterface.exe
