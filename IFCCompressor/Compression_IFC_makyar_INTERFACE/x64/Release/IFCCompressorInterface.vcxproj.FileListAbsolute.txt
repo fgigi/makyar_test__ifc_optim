@@ -1,2 +1,0 @@
-D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_INTERFACE\x64\Release\IFCCompressorInterface.vcxproj.AssemblyReference.cache
-D:\GDRIVE\08_LOGICIELS\01_IFC\LOGICIEL PERSO\VISUAL STUDIO\Compression_IFC_makyar_INTERFACE\x64\Release\IFCCompressorInterface.exe
