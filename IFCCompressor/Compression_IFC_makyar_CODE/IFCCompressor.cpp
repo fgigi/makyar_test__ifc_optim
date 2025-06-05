@@ -73,13 +73,9 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
 
                 if (parser_ss_block1 >> parsed_double_val_block1) {
                     dat = parsed_double_val_block1;
-                    char first_remaining_char_block1 = 0;
-                    if (parser_ss_block1.get(first_remaining_char_block1)) {
-                        sptr = std::string(1, first_remaining_char_block1);
-                        // For full remainder: std::string temp_rem; parser_ss_block1 >> temp_rem; sptr += temp_rem;
-                    } else {
-                        sptr = "";
-                    }
+                    std::stringstream remainder_ss_block1;
+                    remainder_ss_block1 << parser_ss_block1.rdbuf();
+                    sptr = remainder_ss_block1.str();
                 } else {
                     dat = 0.0; // Conversion failed
                     sptr = string_to_parse_block1; // Remainder is original string
@@ -107,12 +103,9 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
 
                 if (parser_ss_block2 >> parsed_double_val_block2) {
                     dat = parsed_double_val_block2;
-                    char first_remaining_char_block2 = 0;
-                    if (parser_ss_block2.get(first_remaining_char_block2)) {
-                        sptr = std::string(1, first_remaining_char_block2);
-                    } else {
-                        sptr = "";
-                    }
+                    std::stringstream remainder_ss_block2;
+                    remainder_ss_block2 << parser_ss_block2.rdbuf();
+                    sptr = remainder_ss_block2.str();
                 } else {
                     dat = 0.0; // Conversion failed
                     sptr = string_to_parse_block2; // Remainder is original string
@@ -138,12 +131,9 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
 
                 if (parser_ss_block3 >> parsed_double_val_block3) {
                     dat = parsed_double_val_block3;
-                    char first_remaining_char_block3 = 0;
-                    if (parser_ss_block3.get(first_remaining_char_block3)) {
-                        sptr = std::string(1, first_remaining_char_block3);
-                    } else {
-                        sptr = "";
-                    }
+                    std::stringstream remainder_ss_block3;
+                    remainder_ss_block3 << parser_ss_block3.rdbuf();
+                    sptr = remainder_ss_block3.str();
                 } else {
                     dat = 0.0; // Conversion failed
                     sptr = string_to_parse_block3; // Remainder is original string
