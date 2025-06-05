@@ -65,8 +65,8 @@ namespace IFCCompressorGUI
             }
 
             // Populate FPR ComboBox
-            cmbFPR.Items.AddRange(new object[] { "0.1", "0.01", "0.001", "0.0001" }); // Add more as needed
-            cmbFPR.SelectedIndex = 1; // Default to 0,01
+            cmbFPR.Items.AddRange(new object[] { "0.1", "0.01", "0.001", "0.0001", "0.00001", "0.000001" }); // Add more as needed
+            cmbFPR.SelectedIndex = 1; // Default to 0.01
 
             // Set initial state for output textbox
             txtOutputFile.Enabled = false;
