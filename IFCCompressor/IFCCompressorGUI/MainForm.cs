@@ -182,7 +182,7 @@ namespace IFCCompressorGUI
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     FileName = compressorPath,
-                    Arguments = $"\"{inputFile}\" \"{outputFile}\" {fpr}",
+                    Arguments = $"\"{inputFile}\" \"{outputFile}\" -fpr {fpr}",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false,

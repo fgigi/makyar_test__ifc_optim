@@ -1,6 +1,8 @@
 #include "IFCCompressor.h"
 #include <iostream>
 #include <iomanip>
+#include <sstream> // For std::stringstream
+#include <locale>  // For std::locale::classic()
 
 using namespace std;
 
@@ -57,10 +59,17 @@ int main(int argc, char* argv[]) {
             generateCSV = true;
         } else if (arg == "-fpr" && i + 1 < argc) {
             try {
-                fprValue = stod(argv[i + 1]);
+                std::string fprStr = argv[i + 1];
+                std::stringstream ss(fprStr);
+                ss.imbue(std::locale::classic()); // Use classic "C" locale
+                ss >> fprValue;
+                if (ss.fail() || !ss.eof()) { // Check for parsing errors
+                    std::cerr << "Erreur: Valeur FPR invalide (echec de conversion): " << fprStr << std::endl;
+                    return 1;
+                }
                 i++; // Ignorer le prochain argument car c'est la valeur FPR
-            } catch (const exception& e) {
-                cerr << "Erreur: Valeur FPR invalide: " << argv[i + 1] << endl;
+            } catch (const std::exception& e) { // Catch standard exceptions
+                std::cerr << "Erreur: Exception lors de la conversion FPR: " << e.what() << std::endl;
                 return 1;
             }
         } else if (arg == "-h" || arg == "--help") {
