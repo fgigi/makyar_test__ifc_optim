@@ -80,19 +80,21 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                std::string string_to_parse_block1 = pp; // pp is already substr'd here
-                double parsed_double_val_block1;
+                // string_to_parse_block1 is 'pp' which is already substr'd before this point.
+                std::string string_to_parse_block1 = pp;
+                double temp_parsed_double_block1;
                 std::stringstream parser_ss_block1(string_to_parse_block1);
                 parser_ss_block1.imbue(std::locale::classic());
 
-                if (parser_ss_block1 >> parsed_double_val_block1) {
-                    dat = parsed_double_val_block1;
-                    std::stringstream remainder_ss_block1;
-                    remainder_ss_block1 << parser_ss_block1.rdbuf();
-                    sptr = remainder_ss_block1.str();
+                if (parser_ss_block1 >> temp_parsed_double_block1) {
+                    dat = temp_parsed_double_block1;
+
+                    std::stringstream remainder_capture_ss_block1;
+                    remainder_capture_ss_block1 << parser_ss_block1.rdbuf();
+                    sptr = remainder_capture_ss_block1.str();
                 } else {
-                    dat = 0.0; // Conversion failed
-                    sptr = string_to_parse_block1; // Remainder is original string
+                    dat = 0.0;
+                    sptr = string_to_parse_block1;
                 }
                 if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
@@ -109,20 +111,21 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                // pp was already updated: pp = pp.substr(0, pp.size() - 1);
+                // string_to_parse_block2 is 'pp' which is already substr'd.
                 std::string string_to_parse_block2 = pp;
-                double parsed_double_val_block2;
+                double temp_parsed_double_block2;
                 std::stringstream parser_ss_block2(string_to_parse_block2);
                 parser_ss_block2.imbue(std::locale::classic());
 
-                if (parser_ss_block2 >> parsed_double_val_block2) {
-                    dat = parsed_double_val_block2;
-                    std::stringstream remainder_ss_block2;
-                    remainder_ss_block2 << parser_ss_block2.rdbuf();
-                    sptr = remainder_ss_block2.str();
+                if (parser_ss_block2 >> temp_parsed_double_block2) {
+                    dat = temp_parsed_double_block2;
+
+                    std::stringstream remainder_capture_ss_block2;
+                    remainder_capture_ss_block2 << parser_ss_block2.rdbuf();
+                    sptr = remainder_capture_ss_block2.str();
                 } else {
-                    dat = 0.0; // Conversion failed
-                    sptr = string_to_parse_block2; // Remainder is original string
+                    dat = 0.0;
+                    sptr = string_to_parse_block2;
                 }
                 if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
@@ -138,19 +141,21 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                std::string string_to_parse_block3 = pp; // pp is used directly
-                double parsed_double_val_block3;
+                // string_to_parse_block3 is 'pp' directly.
+                std::string string_to_parse_block3 = pp;
+                double temp_parsed_double_block3;
                 std::stringstream parser_ss_block3(string_to_parse_block3);
                 parser_ss_block3.imbue(std::locale::classic());
 
-                if (parser_ss_block3 >> parsed_double_val_block3) {
-                    dat = parsed_double_val_block3;
-                    std::stringstream remainder_ss_block3;
-                    remainder_ss_block3 << parser_ss_block3.rdbuf();
-                    sptr = remainder_ss_block3.str();
+                if (parser_ss_block3 >> temp_parsed_double_block3) {
+                    dat = temp_parsed_double_block3;
+
+                    std::stringstream remainder_capture_ss_block3;
+                    remainder_capture_ss_block3 << parser_ss_block3.rdbuf();
+                    sptr = remainder_capture_ss_block3.str();
                 } else {
-                    dat = 0.0; // Conversion failed
-                    sptr = string_to_parse_block3; // Remainder is original string
+                    dat = 0.0;
+                    sptr = string_to_parse_block3;
                 }
                 if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
