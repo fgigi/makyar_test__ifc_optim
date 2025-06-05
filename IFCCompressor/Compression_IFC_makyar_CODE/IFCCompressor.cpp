@@ -66,9 +66,25 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                dat = strtod(pp.c_str(), &ptr);
-                sptr = string(ptr);
-                if ((sptr != ")" && sptr != "") || type != "IFCCARTESIANPOINT" || !islossy) {
+                std::string string_to_parse_block1 = pp; // pp is already substr'd here
+                double parsed_double_val_block1;
+                std::stringstream parser_ss_block1(string_to_parse_block1);
+                parser_ss_block1.imbue(std::locale::classic());
+
+                if (parser_ss_block1 >> parsed_double_val_block1) {
+                    dat = parsed_double_val_block1;
+                    char first_remaining_char_block1 = 0;
+                    if (parser_ss_block1.get(first_remaining_char_block1)) {
+                        sptr = std::string(1, first_remaining_char_block1);
+                        // For full remainder: std::string temp_rem; parser_ss_block1 >> temp_rem; sptr += temp_rem;
+                    } else {
+                        sptr = "";
+                    }
+                } else {
+                    dat = 0.0; // Conversion failed
+                    sptr = string_to_parse_block1; // Remainder is original string
+                }
+                if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
                 } else {
                     sss.str("");
@@ -83,9 +99,25 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                dat = strtod(pp.c_str(), &ptr);
-                sptr = string(ptr);
-                if ((sptr != ")" && sptr != "") || type != "IFCCARTESIANPOINT" || !islossy) {
+                // pp was already updated: pp = pp.substr(0, pp.size() - 1);
+                std::string string_to_parse_block2 = pp;
+                double parsed_double_val_block2;
+                std::stringstream parser_ss_block2(string_to_parse_block2);
+                parser_ss_block2.imbue(std::locale::classic());
+
+                if (parser_ss_block2 >> parsed_double_val_block2) {
+                    dat = parsed_double_val_block2;
+                    char first_remaining_char_block2 = 0;
+                    if (parser_ss_block2.get(first_remaining_char_block2)) {
+                        sptr = std::string(1, first_remaining_char_block2);
+                    } else {
+                        sptr = "";
+                    }
+                } else {
+                    dat = 0.0; // Conversion failed
+                    sptr = string_to_parse_block2; // Remainder is original string
+                }
+                if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
                 } else {
                     sss.str("");
@@ -99,9 +131,24 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
                 cite.push_back(atoi(pp.substr(1, pp.size() - 1).c_str()));
                 str += pp;
             } else {
-                dat = strtod(pp.c_str(), &ptr);
-                sptr = string(ptr);
-                if ((sptr != ")" && sptr != "") || type != "IFCCARTESIANPOINT" || !islossy) {
+                std::string string_to_parse_block3 = pp; // pp is used directly
+                double parsed_double_val_block3;
+                std::stringstream parser_ss_block3(string_to_parse_block3);
+                parser_ss_block3.imbue(std::locale::classic());
+
+                if (parser_ss_block3 >> parsed_double_val_block3) {
+                    dat = parsed_double_val_block3;
+                    char first_remaining_char_block3 = 0;
+                    if (parser_ss_block3.get(first_remaining_char_block3)) {
+                        sptr = std::string(1, first_remaining_char_block3);
+                    } else {
+                        sptr = "";
+                    }
+                } else {
+                    dat = 0.0; // Conversion failed
+                    sptr = string_to_parse_block3; // Remainder is original string
+                }
+                if (type == "IFCCARTESIANPOINT" || (sptr != ")" && sptr != "") || !islossy) {
                     str += pp;
                 } else {
                     sss.str("");
