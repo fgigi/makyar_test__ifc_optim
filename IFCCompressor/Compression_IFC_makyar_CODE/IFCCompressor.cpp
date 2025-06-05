@@ -52,7 +52,21 @@ string IFCCompressor::StandardContent(const string& type, const string& content,
     
     while (getline(ss, pp, ',')) {
         trim(pp);
-        if (pp[0] == '(') {
+
+        if (pp.empty()) {
+            // If pp is empty, original strtod("") resulted in dat=0.0 and sptr="".
+            // The main condition became: (type == "IFCCARTESIANPOINT" || !islossy)
+            if (type == "IFCCARTESIANPOINT" || !islossy) {
+                // Path X equivalent: add empty string (effectively nothing for this token's content part)
+                // str += ""; // No need to explicitly add empty string before the comma
+            } else {
+                // Path Y equivalent: (not IFCCARTESIANPOINT AND islossy is true)
+                // Format 0.0 according to MAX_PRECISION_VAL
+                sss.str(""); // sss is the pre-initialized stringstream for FPR formatting
+                sss << 0.0;
+                str += sss.str();
+            }
+        } else if (pp[0] == '(') { // Original Block 1
             str += '(';
             bool flag = false;
             if (pp[pp.size() - 1] == ')') {
